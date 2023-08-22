@@ -1,12 +1,12 @@
 {
-    "name": "savvy/opensearch-package",
+    "name": "custom/opensearch-package",
     "description": "A package for handling OpenSearch and MySQL operations",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "OpenSearch\\": "src/OpenSearch",
-            "MySql\\": "src/MySql"
+            "Custom\\OpenSearch\\": "src/",
+            "Custom\\MySql\\": "src/"
         }
     },
     "require": {

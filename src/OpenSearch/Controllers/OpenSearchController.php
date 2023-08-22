@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace OpenSearch\Controllers;
 
 use App\Http\Services\OpenSearchService;
 use Illuminate\Http\Request;
