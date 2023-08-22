@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Services;
+namespace src\OpenSearch\Services;
 
 use \OpenSearch\Common\Exceptions\OpenSearchException;
 use \OpenSearch\ClientBuilder;
