@@ -12,18 +12,10 @@ class OpenSearchService
     private $port;
     public function __construct()
     {
-        $this->host = env('OPENSEARCH_HOST');
-        $this->port = env('OPENSEARCH_PORT');
-        // uncomment these lines if you want to connect to aws using .env variable
-        // $this->aws_host = env('OPENSEARCH_AWS_HOST');
-        // $this->aws_port = env('OPENSEARCH_AWS_PORT');
-//echo "http://$this->host"; exit;
         $this->openSearchClient = (new ClientBuilder())
-            ->setHosts(["https://vpc-staging-opensearch-reowrvff4oxlz5yuowrj73lyw4.ap-south-1.es.amazonaws.com:443"])
-            // kindly update env for aws url
-            // ->setHosts(["https://$this->aws_host"]) //for aws access port may be necessary or not
-            ->setBasicAuthentication('techcamp', 'test@Savyour929') // For testing only. Don't store credentials in code.
-            ->setSSLVerification(true) // For testing only. Use certificate for validation
+            ->setHosts([env('OPENSEARCH_HOST').":".env('OPENSEARCH_PORT')])
+            ->setBasicAuthentication(env('OPENSEARCH_USERNAME'), env('OPENSEARCH_PASSWORD'))
+            ->setSSLVerification(true)
             ->build();
     }
     public function testConnection()
