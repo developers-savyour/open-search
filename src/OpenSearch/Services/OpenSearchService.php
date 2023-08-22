@@ -127,4 +127,19 @@ class OpenSearchService
             return ($e);
         }
     }
+
+    public function updateDocument($indexName, $id, $updateData)
+    {
+        try {
+            return $this->openSearchClient->update([
+                'index' => $indexName,
+                'id' => $id,
+                'body' => [
+                    'doc' => $updateData
+                ]
+            ]);
+        } catch (OpenSearchException $e) {
+            return ($e);
+        }
+    }
 }

@@ -75,4 +75,15 @@ class OpenSearchController extends Controller
             return $e;
         }
     }
+
+    public function update_document()
+    {
+        try {
+            $jsonData = file_get_contents('php://input');
+            $phpArray = json_decode($jsonData, true);
+            return $this->openSearchService->updateDocument($phpArray['indexName'], $phpArray['document_id'], $phpArray['update_fields']);
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
 }
